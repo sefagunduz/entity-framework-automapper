@@ -14,3 +14,4 @@ Prodgram.cs
 
  IMapper mapper = mapperConfig.CreateMapper();
  services.AddSingleton(mapper);
+

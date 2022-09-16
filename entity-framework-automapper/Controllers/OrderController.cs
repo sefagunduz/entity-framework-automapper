@@ -7,20 +7,22 @@ namespace entity_framework_automapper.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductController : ControllerBase
+    public class OrderController : ControllerBase
     {
         private readonly IMapper mapper;
-        public ProductController(IMapper mapper)
+        public OrderController(IMapper mapper)
         {
             this.mapper = mapper;
         }
 
-        [HttpPost] 
-        public IActionResult Post(ProductApiModel productApiModel)
+        [HttpPost]
+        public IActionResult Post(Order order)
         {
-            Product product = mapper.Map<Product>(productApiModel);
+            Product product = mapper.Map<Product>(order);
+            Customer customer = mapper.Map<Customer>(order);
 
             return Ok();
         }
+
     }
 }
